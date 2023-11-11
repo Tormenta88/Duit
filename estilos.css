@@ -11,7 +11,7 @@ body{
     
     
     .caja {
-        background: #E3F2FD;
+      background: rgb(76, 169, 235);
       border: 3px solid;
       padding: 5px;
       width: fit-content;
