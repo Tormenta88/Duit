@@ -1,0 +1,38 @@
+body{
+    background-color: #E3F2FD;
+    font-family: 'Montserrat', sans-serif;
+    }
+    
+    #titulo {
+      text-align: center;
+      text-decoration: underline;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    
+    .caja {
+        background: #E3F2FD;
+      border: 3px solid;
+      padding: 5px;
+      width: fit-content;
+      margin: 20px auto;
+      text-align: center;
+        
+    }
+    
+    .boton {
+      margin-left: 10px;
+      position: 0;
+      top: 10px;
+      right: 10px;
+    }
+    
+    h2 {
+      text-align: center;
+      text-decoration: underline;
+    }
+    
+    p {
+      margin-left: 10px;
+      justify-content: center;
+    }
