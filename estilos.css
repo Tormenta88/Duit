@@ -1,54 +1,57 @@
+a{
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.5vw;
+  color: rgb(111, 111, 111);
+}
 body{
-  background-color: #E3F2FD;
+  background-color: #d8e4ee;
   font-family: 'Montserrat', sans-serif;
+  margin: 0px;
+  color: black;
   
+}
+h1 {
+  color: black;
 }
 h2 {
   text-align: center;
   text-decoration: underline;
+  color:black;
 }
 
 p {
   margin: 100px;
   justify-content: center;
+  color: black;
 
 }
-
     .encabezado {
-      overflow: hidden;
-      background-color: #f4c5c5;
-      padding: 20px 10px;
-    }
-
-    .encabezado a.logo {
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .encabezado:hover {
-      background-color: aqua;
-      color: white;
+      background-color: #ffffff;
+      block-size: 12vh;
     }
 
     .encabezado-derecha {
-      float: right;
+      /*float: right;*/
+      text-align: center;
+      margin-top: -2.25vh;
+      margin-right: 34vw;
+      text-decoration: none;
+    }
+    .enlace{
+      margin-left: 20px;
     }
     
-    #titulo {
-      text-align: center;
-      text-decoration: underline;
-      font-family: 'Montserrat', sans-serif;
-    }
     
     
     .caja {
-        background: #E3F2FD;
+      background: #d8e4ee;
       border: 3px solid;
       padding: 5px;
       width: fit-content;
       margin: 20px auto;
       text-align: center;
-        
+      
     }
     
     .boton {
@@ -57,5 +60,16 @@ p {
       top: 10px;
       right: 10px;
     }
+    .imagen{
+      max-width: 10vw;
+      margin-left: 9vw;
+      margin-top: 4vh;
+    }
+
+
     
-    
+    #titulo {
+      text-align: center;
+      text-decoration: underline;
+      font-family: 'Montserrat', sans-serif;
+    }
