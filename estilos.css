@@ -23,7 +23,7 @@ h2 {
 p {
   margin: 50px 250px;
   justify-content: center;
-  text-align: justify;
+
   font-size: 20px;
   color: black;
 
@@ -70,7 +70,6 @@ p {
     .contenedor_idea {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 0 40px; 
       max-width: 10000px; 
       margin: 0; 
@@ -78,15 +77,15 @@ p {
     }
     
     .text-content {
-      flex-basis: 50%; 
+      flex-basis: 1250px;
       padding-right: 10px;
-      justify-content: flex-end; 
+      text-align: initial;
     }
     
     .image-content {
-      flex-basis: 50%; 
+      flex-basis: 60%; 
       display: flex;
-      justify-content: flex-end; 
+      justify-content: flex-end;
       margin-right: 150px;
     }
     
