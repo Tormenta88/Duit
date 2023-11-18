@@ -1,6 +1,27 @@
 body{
     background-color: #E3F2FD;
     font-family: 'Montserrat', sans-serif;
+
+    }
+
+    .encabezado {
+      overflow: hidden;
+      background-color: #f4c5c5;
+      padding: 20px 10px;
+    }
+
+    .encabezado a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .encabezado a.hover {
+      background-color: aqua;
+      color: white;
+    }
+
+    .encabezado-derecha {
+      float: right;
     }
     
     #titulo {
@@ -33,6 +54,7 @@ body{
     }
     
     p {
-      margin-left: 10px;
+      margin: 100px;
       justify-content: center;
     }
+    
