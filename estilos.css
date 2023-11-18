@@ -25,7 +25,7 @@ p {
       font-weight: bold;
     }
 
-    .encabezado a.hover {
+    .encabezado:hover {
       background-color: aqua;
       color: white;
     }
