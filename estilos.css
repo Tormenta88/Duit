@@ -16,13 +16,14 @@ h1 {
 }
 h2 {
   text-align: center;
-  text-decoration: underline;
   color:black;
+  margin-top: 140px;
 }
 
 p {
   margin: 50px 250px;
   justify-content: center;
+  text-align: justify;
   font-size: 20px;
   color: black;
 
@@ -44,7 +45,6 @@ p {
     
     #titulo {
       text-align: center;
-      text-decoration: underline;
       font-family: 'Montserrat', sans-serif;
 
     }
@@ -67,25 +67,29 @@ p {
       right: 10px;
     }
   
-    .container {
+    .contenedor_idea {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 40px; 
       max-width: 10000px; 
-      margin: 0 auto; 
+      margin: 0; 
+      margin-top: 200px;
     }
     
     .text-content {
       flex-basis: 50%; 
-      padding-right: 10px; 
+      padding-right: 10px;
+      justify-content: flex-end; 
     }
     
     .image-content {
       flex-basis: 50%; 
       display: flex;
       justify-content: flex-end; 
+      margin-right: 150px;
     }
+    
     
     .imagen_1 {
       max-width: 100%;
@@ -96,11 +100,13 @@ p {
       margin-left: 9vw;
       margin-top: 2.3%;
     }
-
+    .imagen_2{
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 0px 235px;
+      width: 1280px;
+      height: 720px;
+    }
 
     
-    #titulo {
-      text-align: center;
-      text-decoration: underline;
-      font-family: 'Montserrat', sans-serif;
-    }
