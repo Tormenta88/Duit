@@ -1,8 +1,18 @@
 body{
-    background-color: #E3F2FD;
-    font-family: 'Montserrat', sans-serif;
+  background-color: #E3F2FD;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+h2 {
+  text-align: center;
+  text-decoration: underline;
+}
 
-    }
+p {
+  margin: 100px;
+  justify-content: center;
+
+}
 
     .encabezado {
       overflow: hidden;
@@ -48,13 +58,4 @@ body{
       right: 10px;
     }
     
-    h2 {
-      text-align: center;
-      text-decoration: underline;
-    }
-    
-    p {
-      margin: 100px;
-      justify-content: center;
-    }
     
