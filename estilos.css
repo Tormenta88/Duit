@@ -1,7 +1,8 @@
 a{
   text-decoration: none;
   font-weight: 900;
-  font-size: 10;
+  /*font-size: 10;*/
+  font-size: 1.1rem;
   color: rgb(111, 111, 111);
 }
 body{
@@ -23,7 +24,7 @@ h2 {
 
 p {
   margin: 50px 250px;
-  font-size: 20px;
+  font-size: 1.5rem;
   color: black;
 
 }
@@ -69,13 +70,21 @@ p {
 
     .text-content p {
       margin: 150px;
-      margin-top: 100px;
-      font-size: 20px;
+      margin-top: 70px;
+      margin-right: 70px;
+      font-size: 1.375rem;
       color: black;
       text-align: left;
+      line-height: 40px;
     }
 
-
+    .espacio{
+      color: #d8e4ee00;
+    }
+    .espaciador{
+      width: 100svw;
+      height: 50px;
+    }
 
     .image-content {
       width: fit-content;
