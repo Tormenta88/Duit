@@ -2,16 +2,19 @@
 <html>
    <head>
         <link rel="stylesheet" href="estilo.css">
+        <link rel="stylesheet" href="botones.css">
+        <link rel="stylesheet" href="rclick.css">
         <title> Duit </title>
    </head>
    <body>
 
         <div class="topbar">
             <a href="#default" class="logo"> <img src="../multimedia/logo_svg.svg" alt="Logo" class="logo"> </a>
-            <button class="moveri mover" id="izquierda"><</button>
-            <button class="moverr mover" id="derecha">></button>
+            <div class="botones">    
+                <button class="moveri mover" id="izquierda"><</button>
+                <button class="moverr mover" id="derecha">></button>
+            </div>
         </div>
-        <script src="/Calendario/javascript.js"></script>
         <table class="table" id="Tabla">
             <tr>
                 <th> Lunes </th>
@@ -23,53 +26,56 @@
                 <th> Domingo </th>
             </tr>
             <tr>
-                <td> <div class="contenedor">1</div> </td>
-                <td> <div class="contenedor">2</div> </td>
-                <td> <div class="contenedor">3</div> </td>
-                <td> <div class="contenedor">4</div> </td>
-                <td> <div class="contenedor">5</div> </td>
-                <td> <div class="contenedor">6</div> </td>
-                <td> <div class="contenedor">7</div> </td>
+                <td> <div class="contenedor"><p class="dia">1</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">2</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">3</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">4</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">5</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">6</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">7</p></div> </td>
             </tr>
             <tr>
-                <td> <div class="contenedor">8</div> </td>
-                <td> <div class="contenedor">9</div> </td>
-                <td> <div class="contenedor">10</div> </td>
-                <td> <div class="contenedor">11</div> </td>
-                <td> <div class="contenedor">12</div> </td>
-                <td> <div class="contenedor">13</div> </td>
-                <td> <div class="contenedor">14</div> </td>
+                <td> <div class="contenedor"><p class="dia">8</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">9</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">10</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">11</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">12</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">13</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">14</p></div> </td>
             </tr>
             <tr>
-                <td> <div class="contenedor">15</div> </td>
-                <td> <div class="contenedor">16</div> </td>
-                <td> <div class="contenedor">17</div> </td>
-                <td> <div class="contenedor">18</div> </td>
-                <td> <div class="contenedor">19</div> </td>
-                <td> <div class="contenedor">20</div> </td>
-                <td> <div class="contenedor">21</div> </td>
+                <td> <div class="contenedor"><p class="dia">15</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">16</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">17</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">18</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">19</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">20</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">21</p></div> </td>
             </tr>
             
             <tr>
-                <td> <div class="contenedor">22</div> </td>
-                <td> <div class="contenedor">23</div> </td>
-                <td> <div class="contenedor">24</div> </td>
-                <td> <div class="contenedor">25</div> </td>
-                <td> <div class="contenedor">26</div> </td>
-                <td> <div class="contenedor">27</div> </td>
-                <td> <div class="contenedor">28</div> </td>
+                <td> <div class="contenedor"><p class="dia">22</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">23</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">24</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">25</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">26</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">27</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">28</p></div> </td>
             </tr>
             <tr>
-                <td> <div class="contenedor">29</div> </td>
-                <td> <div class="contenedor">30</div> </td>
-                <td> <div class="contenedor">31</div> </td>
-                <td> <div class="contenedor">1</div> </td>
-                <td> <div class="contenedor">2</div> </td>
-                <td> <div class="contenedor">3</div> </td>
-                <td> <div class="contenedor">4</div> </td>
+                <td> <div class="contenedor"><p class="dia">29</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">30</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">31</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">1</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">2</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">3</p></div> </td>
+                <td> <div class="contenedor"><p class="dia">4</p></div> </td>
             </tr>
         </table>
-   </body>
-
-</html>
-
+        <script src="/Calendario/javascript.js"></script>
+        <script src="/Calendario/rclick.js"></script>
+    </body>
+    
+    </html>
+    
+    
