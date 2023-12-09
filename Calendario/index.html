@@ -2,8 +2,7 @@
 <html>
    <head>
         <link rel="stylesheet" href="estilo.css">
-        <link rel="stylesheet" href="botones.css">
-        <link rel="stylesheet" href="rclick.css">
+        <link rel="stylesheet" href="Bot&Rclick.css">
         <title> Duit </title>
    </head>
    <body>
@@ -14,6 +13,7 @@
                 <button class="moveri mover" id="izquierda"><</button>
                 <button class="moverr mover" id="derecha">></button>
             </div>
+            <h3 id="casualmente">ciertamente</h3>
         </div>
         <table class="table" id="Tabla">
             <tr>
@@ -26,7 +26,7 @@
                 <th> Domingo </th>
             </tr>
             <tr>
-                <td> <div class="contenedor"><p class="dia">1</p></div> </td>
+                <td> <div class="contenedor"><p id="dia">1</p></div> </td>
                 <td> <div class="contenedor"><p class="dia">2</p></div> </td>
                 <td> <div class="contenedor"><p class="dia">3</p></div> </td>
                 <td> <div class="contenedor"><p class="dia">4</p></div> </td>
@@ -72,8 +72,22 @@
                 <td> <div class="contenedor"><p class="dia">4</p></div> </td>
             </tr>
         </table>
+
+        <dialog class="popup" id="popup">
+            <h2 id="titulo"></h2>
+            <p>prueba</p>
+            <form name="formal" method="dialog">
+                <label> Evento <input type="text" name="agarrar"></label><br><br>
+                <label> Hora <input type="time"></label><br><br>
+                <label> Duracion <input type="number"></label><br><br>
+            </form>
+            <button class="close-button">cerrar prueba</button>
+        </dialog>
+
+
+
         <script src="/Calendario/javascript.js"></script>
-        <script src="/Calendario/rclick.js"></script>
+        <script src="/Calendario/rclick2.js"></script>
     </body>
     
     </html>
