@@ -13,6 +13,7 @@ table{
     font-size: 1em;
     border-collapse: collapse;
     width: 100%;
+    min-width: 1700px;
     border-radius: 5px 50px 0 0;
 }
 
@@ -52,29 +53,30 @@ td{
 .contenedor:hover{
     animation: cambioColor 1s forwards;
 }
-
-
-
 @keyframes cambioColor {
     50% {
       background-color: turquoise; /* Color medio de la animación */
     }
   }
 .topbar{
+    min-width: 1700px;
+    min-height: 60px;
     height: 7svh;
     background-color: white;
 }
 .logo{
     /*max-width: 7vw;
     margin-left: 9vw;*/
-    height: 6svh;
-    margin-left: 9svw;
+    height: 90%;
+    margin-left: 5svw;
   }
 
 
   .popup{
     padding: 1em;
-    max-width: 50ch;
+    max-height: 31%;
+    width: 30%;
+    /*max-width: 50ch;*/
   }
 
 
@@ -104,4 +106,8 @@ td{
     left: 2.5%; /* Puedes ajustar esto según tu diseño */
     top: 10%; /* Puedes ajustar esto según tu diseño */
     margin: 0px; /* Elimina el margen predeterminado del párrafo */
+  }
+
+  #maxChar, #maxHora{
+    font-weight: bold;
   }

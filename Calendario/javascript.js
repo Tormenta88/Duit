@@ -11,6 +11,8 @@ cancelPopup.addEventListener('click', () => {
 
 
 function añadirEvento(dia){
+    document.getElementById('maxChar').innerHTML = ''
+    document.getElementById('maxHora').innerHTML = ''
     let eventoTexto = String;
     let eventoFecha = Array;
     let numero = dia.querySelector('p').innerHTML
@@ -21,11 +23,6 @@ function añadirEvento(dia){
 
 
 function editarDia(elementoDia, texto, hora, duracion, allDay){
-    //var nuevoparrafo = document.createElement('div');
-    //nuevoparrafo.innerHTML = texto + String(hora) + String(duracion)
-    //nuevoparrafo.style.backgroundColor = 'red';
-    //nuevoparrafo.style.position = 'absolute;'
-    //nuevoparrafo.style.left = 0;
     var parrafo = document.getElementById('evenTry');
     var nuevoparrafo = parrafo.cloneNode(true);
     nuevoparrafo.style.opacity = 1;
@@ -57,6 +54,10 @@ closePopup.addEventListener('click', () => {
             editarDia(evento, nombreEvento, horaEvento, duracionEvento, true)
             popup.close()
         }}
+    else{
+        document.getElementById('maxChar').innerHTML = 'El nombre del evento debe ser de maximo 18 caracteres'
+        document.getElementById('maxHora').innerHTML = 'La duración del evento no debe superar 24 horas'
+    }
 
 })
 

@@ -216,10 +216,10 @@
         <dialog class="popup" id="popup">
             <h2 id="titulo"></h2>
             <form name="formal" method="dialog">
-                <label> Nombre del evento: <input type="text" name="nombreEvento"></label><br>
-                <p>(Dejar en blanco para todo el dia)</p>
+                <label> Nombre del evento: <input type="text" name="nombreEvento"></label><p id="maxChar"></p>
+                <p><i>(Dejar en blanco para todo el dia)</i></p>
                 <label> Hora del evento: <input type="time" name="tiempoEvento"></label><br><br>
-                <label> Duracion del evento: <input type="number" name="duracionEvento"></label><br><br>
+                <label> Duracion del evento (Horas): <input type="number" name="duracionEvento"></label><p id="maxHora"></p><br>
             </form>
             <div>
                 <button class="close-button">Enviar</button>
