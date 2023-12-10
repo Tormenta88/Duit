@@ -50,8 +50,8 @@ const attachContextMenu = (() => {
                     console.log("General Eventos", o, element.id, element.className);
                 },
                 subMenu: [
-                    { label: 'Nuevo Evento', action(o, element) { añadirEvento(o) } },
-                    { label: "Borrar Evento", action(o, element) { editarDia(element) } }
+                    { label: 'Nuevo Evento', action(o, element) { añadirEvento(element) } },
+                    { label: "Borrar Evento", action(o, element) { console.log('borrar evento todavia nada') } }
                 ]
             },
             {

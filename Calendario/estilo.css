@@ -38,18 +38,18 @@ td{
     height: 17.66svh;
 }
 .contenedor{
-    position: absolute;
-    top: 0px;
-    right: 0;
     width: 100%;
     height: 100%;
 }
-.contenedor p{
+.dia {
+    bottom: 0;
     position: absolute;
+    text-align: right;
     right: 5px;
 }
+
+
 .contenedor:hover{
-    font-weight: bold;
     animation: cambioColor 1s forwards;
 }
 
@@ -75,6 +75,33 @@ td{
   .popup{
     padding: 1em;
     max-width: 50ch;
+  }
 
 
+  .evenTry{
+    opacity: 0;
+    top: 5%;
+    left: 2.5%;
+    width: 95%;
+    height: 1.25rem;
+    border-radius: 10% / 100%;
+    position: absolute;
+    background-color: greenyellow;
+  }
+
+  .horaDentro{
+    font-size: 0.8rem;
+    position: absolute;
+    top: -0.6rem;
+    right: 2%;
+
+  }
+
+
+  .textoDentro {
+    font-size: 80%;
+    position: absolute;
+    left: 2.5%; /* Puedes ajustar esto según tu diseño */
+    top: 10%; /* Puedes ajustar esto según tu diseño */
+    margin: 0px; /* Elimina el margen predeterminado del párrafo */
   }
