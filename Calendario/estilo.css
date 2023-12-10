@@ -111,3 +111,22 @@ td{
   #maxChar, #maxHora{
     font-weight: bold;
   }
+
+
+  .monyr{
+    position: absolute;
+    height: 7svh;
+    min-height: 60px;
+    top: 0;
+    right: 300px;
+    width: 250px;
+  }
+  #year{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  #month{
+    position: absolute;
+    top: 0;
+  }
