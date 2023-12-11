@@ -103,11 +103,21 @@ function cargarMes(){
 
 
 
+function resetearEventosCargados(){
+    var elementosAEliminar = document.querySelectorAll('.evenTry');
+    for (var i = 1; i < elementosAEliminar.length; i++) {
+        elementosAEliminar[i].remove();
+    };
+};
+
+
 function nextMonth(){
     if (mes == 12) {mes = 1;year += 1;} else {mes += 1;}
     document.getElementById('month').innerHTML = months[mes-1];
     document.getElementById('year').innerHTML = year;
     cargarMes()
+    resetearEventosCargados()
+    
 };
 function previousMonth(){
     if (mes == 1){
@@ -120,6 +130,7 @@ function previousMonth(){
     document.getElementById('month').innerHTML = months[mes-1]
     document.getElementById('year').innerHTML = year
     cargarMes()
+    resetearEventosCargados()
 };
 
 
