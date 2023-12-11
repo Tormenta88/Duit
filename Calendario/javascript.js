@@ -5,6 +5,7 @@ var mes = fechaActual.getMonth() + 1; // PQ los meses empiezan en 0, dkw
 var dia = fechaActual.getDate();
 let mesLetras = 'Diciembre';
 let evento
+let numero
 
 const popup = document.querySelector('#popup')
 const closePopup = document.querySelector('.close-button')
@@ -25,7 +26,7 @@ function añadirEvento(dia){
     document.getElementById('maxHora').innerHTML = ''
     let eventoTexto = String;
     let eventoFecha = Array;
-    let numero = dia.querySelector('p').innerHTML
+    numero = dia.querySelector('p').innerHTML
     popup.showModal();
     document.getElementById('titulo').innerHTML = numero + ' de ' + mesLetras;
     evento = dia
@@ -57,37 +58,56 @@ closePopup.addEventListener('click', () => {
     console.log(nombreEvento)
     if (nombreEvento.length <= 18 & nombreEvento.length > 0 & (duracionEvento == '' || Number(duracionEvento) <= 24))
         {if (horaEvento != '' & duracionEvento != '' & duracionEvento > 0){
-            editarDia(evento, nombreEvento, horaEvento, duracionEvento, false)
+            allDay = false
+            editarDia(evento, nombreEvento, horaEvento, duracionEvento, allDay)
             popup.close()
         }
         else if (horaEvento == '' & duracionEvento == ''){
-            editarDia(evento, nombreEvento, horaEvento, duracionEvento, true)
+            allDay = true
+            editarDia(evento, nombreEvento, horaEvento, duracionEvento, allDay)
             popup.close()
         }}
-    else{
-        document.getElementById('maxChar').innerHTML = 'El nombre del evento debe ser de maximo 18 caracteres'
-        document.getElementById('maxHora').innerHTML = 'La duración del evento no debe superar 24 horas'
-    }
-    
+        else{
+            document.getElementById('maxChar').innerHTML = 'El nombre del evento debe ser de maximo 18 caracteres'
+            document.getElementById('maxHora').innerHTML = 'La duración del evento no debe superar 24 horas'
+        };
+        if (eventos[`${numero}.${mes}.${year}`] != null){
+            eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
+        }
+        else{
+            eventos[`${numero}.${mes}.${year}`] = [];
+            eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
+        }
+        console.log(eventos);
 })
 
 
 function obtenerDiasEnMes(mes, año) {
-    const ultimoDiaDelMes = new Date(año, mes + 1, 0).getDate();
+    const ultimoDiaDelMes = new Date(año, mes, 0).getDate();
     return ultimoDiaDelMes;
 }
 
+
+function cargarMes(){
+    diasEnMes = obtenerDiasEnMes(mes, year);
+    losDias = document.getElementsByClassName('dia')
+    for (let x = 0; x < losDias.length; x+=1){
+        if (x < diasEnMes){
+            losDias[x].innerHTML = x+1;
+        }
+        else{
+            losDias[x].innerHTML = '';
+        }
+    };
+};
+
+
+
 function nextMonth(){
-    if (mes == 12){
-        mes = 1;
-        year += 1;
-    }
-    else{
-        mes += 1;
-    }
-    document.getElementById('month').innerHTML = months[mes-1]
-    document.getElementById('year').innerHTML = year
-    console.log(obtenerDiasEnMes(mes, year))
+    if (mes == 12) {mes = 1;year += 1;} else {mes += 1;}
+    document.getElementById('month').innerHTML = months[mes-1];
+    document.getElementById('year').innerHTML = year;
+    cargarMes()
 };
 function previousMonth(){
     if (mes == 1){
@@ -99,9 +119,12 @@ function previousMonth(){
     }
     document.getElementById('month').innerHTML = months[mes-1]
     document.getElementById('year').innerHTML = year
+    cargarMes()
 };
 
 
+
+cargarMes()
 
 console.log(`Hoy es ${dia} de ${months[mes-1]} del ${year}`)
 var horas = fechaActual.getHours();
