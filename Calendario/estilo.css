@@ -51,7 +51,7 @@ td{
 
 
 .contenedor:hover{
-    animation: cambioColor 1s forwards;
+    animation: cambioColor 0.5s forwards;
 }
 @keyframes cambioColor {
     50% {

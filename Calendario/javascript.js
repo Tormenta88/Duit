@@ -1,13 +1,23 @@
-let mes = 'Diciembre';
-let evento = null
+const months = ["Enero", "Febrero", "Marzo", "Abríl", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+var fechaActual = new Date();
+var year = fechaActual.getFullYear();
+var mes = fechaActual.getMonth() + 1; // PQ los meses empiezan en 0, dkw
+var dia = fechaActual.getDate();
+let mesLetras = 'Diciembre';
+let evento
+
 const popup = document.querySelector('#popup')
 const closePopup = document.querySelector('.close-button')
 const cancelPopup = document.querySelector('.cancel-button')
 
+document.getElementById('month').innerHTML = months[mes-1]
+document.getElementById('year').innerHTML = year
+
+
+
 cancelPopup.addEventListener('click', () => {
     popup.close()
 })
-
 
 
 function añadirEvento(dia){
@@ -17,7 +27,7 @@ function añadirEvento(dia){
     let eventoFecha = Array;
     let numero = dia.querySelector('p').innerHTML
     popup.showModal();
-    document.getElementById('titulo').innerHTML = numero + ' de ' + mes;
+    document.getElementById('titulo').innerHTML = numero + ' de ' + mesLetras;
     evento = dia
 }
 
@@ -58,11 +68,48 @@ closePopup.addEventListener('click', () => {
         document.getElementById('maxChar').innerHTML = 'El nombre del evento debe ser de maximo 18 caracteres'
         document.getElementById('maxHora').innerHTML = 'La duración del evento no debe superar 24 horas'
     }
-
+    
 })
 
 
-//TODO Para los meses
-//const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-//const d = new Date("2021-03-25");
-//let month = months[d.getMonth()];
+function obtenerDiasEnMes(mes, año) {
+    const ultimoDiaDelMes = new Date(año, mes + 1, 0).getDate();
+    return ultimoDiaDelMes;
+}
+
+function nextMonth(){
+    if (mes == 12){
+        mes = 1;
+        year += 1;
+    }
+    else{
+        mes += 1;
+    }
+    document.getElementById('month').innerHTML = months[mes-1]
+    document.getElementById('year').innerHTML = year
+    console.log(obtenerDiasEnMes(mes, year))
+};
+function previousMonth(){
+    if (mes == 1){
+        mes = 12;
+        year -= 1;
+    }
+    else{
+        mes -= 1;
+    }
+    document.getElementById('month').innerHTML = months[mes-1]
+    document.getElementById('year').innerHTML = year
+};
+
+
+
+console.log(`Hoy es ${dia} de ${months[mes-1]} del ${year}`)
+var horas = fechaActual.getHours();
+var minutos = fechaActual.getMinutes();
+var segundos = fechaActual.getSeconds();
+var horaFormateada = horas + ':' + minutos + '…' + segundos+'s';
+console.log('Hora actual: ' + horaFormateada);
+
+
+
+
