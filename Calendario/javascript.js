@@ -34,7 +34,8 @@ function borrarEvento(dia){
         nuevoBorrador.style.opacity = 1;
         nuevoBorrador.style.position = 'relative';
         nuevoBorrador.querySelector('.eventoABorrar').innerHTML = eventos[`${numero}.${mes}.${year}`][x][1];
-        nuevoBorrador.querySelector('.eventoABorrar'). = ;
+        confirmar = nuevoBorrador.querySelector('#check').checked;
+        console.log(confirmar)
         document.getElementById('borrarDiv').appendChild(nuevoBorrador)
     };
 };
