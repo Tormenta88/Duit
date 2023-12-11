@@ -2,36 +2,60 @@ const months = ["Enero", "Febrero", "Marzo", "Abríl", "Mayo", "Junio", "Julio",
 var fechaActual = new Date();
 var year = fechaActual.getFullYear();
 var mes = fechaActual.getMonth() + 1; // PQ los meses empiezan en 0, dkw
-var dia = fechaActual.getDate();
+var dia = fechaActual.getDate(); // Dias tmb pero lo pongo despues
 let mesLetras = 'Diciembre';
 let evento
 let numero
-
-
-const popup = document.querySelector('#popup')
-const closePopup = document.querySelector('.close-button')
-const cancelPopup = document.querySelector('.cancel-button')
-
 document.getElementById('month').innerHTML = months[mes-1]
 document.getElementById('year').innerHTML = year
 
 
+const popup = document.querySelector('#popup')
+const sendPopup = document.querySelector('.close-button')
+const cancelPopup = document.querySelector('.cancel-button')
 
-cancelPopup.addEventListener('click', () => {
-    popup.close()
-})
+const popupB = document.querySelector('#popupB')
+const sendPopupB = document.querySelector('.close-button')
+const cancelPopupB = document.querySelector('.cancel-buttonB')
+
+
+cancelPopup.addEventListener('click', () => {popup.close()});
+cancelPopupB.addEventListener('click', () => {popupB.close()});
+
+
+function borrarEvento(dia){
+    resetearEventosABorrar()
+    popupB.showModal();
+    numero = dia.querySelector('p').innerHTML
+    const nEventos = eventos[`${numero}.${mes}.${year}`].length
+    for (let x = 0; x < nEventos; x+=1){
+        var borrador = document.getElementById('borrarType');
+        var nuevoBorrador = borrador.cloneNode(true);
+        nuevoBorrador.style.opacity = 1;
+        nuevoBorrador.style.position = 'relative';
+        nuevoBorrador.querySelector('.eventoABorrar').innerHTML = eventos[`${numero}.${mes}.${year}`][x][1];
+        nuevoBorrador.querySelector('.eventoABorrar'). = ;
+        document.getElementById('borrarDiv').appendChild(nuevoBorrador)
+    };
+};
+
+function borrarSelecion(){
+    aBorrar = document.forms['formalB']['nombreEventoB'].value;
+    console.log
+};
+
+
+
 
 
 function añadirEvento(dia){
     document.getElementById('maxChar').innerHTML = ''
     document.getElementById('maxHora').innerHTML = ''
-    let eventoTexto = String;
-    let eventoFecha = Array;
     numero = dia.querySelector('p').innerHTML
-    popup.showModal();
     document.getElementById('titulo').innerHTML = numero + ' de ' + mesLetras;
     evento = dia
-}
+    popup.showModal();
+};
 
 
 function editarDia(elementoDia, texto, hora, duracion, allDay){
@@ -52,7 +76,7 @@ function editarDia(elementoDia, texto, hora, duracion, allDay){
 }
 
 
-closePopup.addEventListener('click', () => {
+sendPopup.addEventListener('click', () => {
     let nombreEvento = document.forms['formal']['nombreEvento'].value;
     let horaEvento = document.forms['formal']['tiempoEvento'].value;
     let duracionEvento = document.forms['formal']['duracionEvento'].value;
@@ -80,7 +104,6 @@ closePopup.addEventListener('click', () => {
             document.getElementById('maxHora').innerHTML = 'La duración del evento no debe superar 24 horas'
         };
         if (eventos[`${numero}.${mes}.${year}`] != null){
-            long = eventos[`${numero}.${mes}.${year}`].length
             if (long < maxEventos){
                 eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
             } else {
@@ -106,6 +129,12 @@ function resetearEventosCargados(){
         elementosAEliminar[i].remove();
     };
 };
+function resetearEventosABorrar(){
+    var elementosAEliminar = document.querySelectorAll('.borrarType');
+    for (var i = 1; i < elementosAEliminar.length; i++) {
+        elementosAEliminar[i].remove();
+    };
+};
 
 function cargarMes(){
     resetearEventosCargados()
@@ -127,8 +156,6 @@ function cargarMes(){
             losDias[x].innerHTML = '';
         }
     };
-    //TODO cargar todos los eventos almacenados
-
 };
 
 
@@ -136,30 +163,19 @@ function cargarMes(){
 
 
 function nextMonth(){
-    if (mes == 12) {mes = 1;year += 1;} else {mes += 1;}
+    if (mes == 12) {mes = 1;year += 1;} else {mes += 1;};
     document.getElementById('month').innerHTML = months[mes-1];
     document.getElementById('year').innerHTML = year;
-    cargarMes()
+    cargarMes();
     
 };
 function previousMonth(){
-    if (mes == 1){
-        mes = 12;
-        year -= 1;
-    }
-    else{
-        mes -= 1;
-    }
-    document.getElementById('month').innerHTML = months[mes-1]
-    document.getElementById('year').innerHTML = year
-    cargarMes()
+    if (mes == 1) {mes = 12;year -= 1;} else {mes -= 1;};
+    document.getElementById('month').innerHTML = months[mes-1];
+    document.getElementById('year').innerHTML = year;
+    cargarMes();
 };
 
 
 
-cargarMes()
-
-
-
-
-
+cargarMes();

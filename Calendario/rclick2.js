@@ -43,7 +43,7 @@ const attachContextMenu = (() => {
       let targetMenuOptions = menuOptions;
 
       // Diferenciar si se esta haciendo click dentro de un día
-      if (clickedElement.className == 'contenedor') {
+      if (clickedElement.className == 'contenedor' & clickedElement.querySelector('p').innerHTML != '') {
           targetMenuOptions = [
             {
                 label: "Eventos", action(o, element) {
@@ -51,7 +51,7 @@ const attachContextMenu = (() => {
                 },
                 subMenu: [
                     { label: 'Nuevo Evento', action(o, element) { añadirEvento(element) } },
-                    { label: "Borrar Evento", action(o, element) { console.log('borrar evento todavia nada') } }
+                    { label: "Borrar Evento", action(o, element) { borrarEvento(element) } }
                 ]
             },
             {

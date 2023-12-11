@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
    <head>
+       
+       <link rel="stylesheet" href="estilo.css">
+       <link rel="stylesheet" href="Bot&Rclick.css">
+       <title> Duit </title>
+    </head>
+    <body>
+        <!-- Etiquetas pre hechas para poder copiarlas -->
         <div class="evenTry" id="evenTry"> <p class="textoDentro">texto de ejemplo algo largo</p> <p class="horaDentro"> 12:00</p></div>
-        <link rel="stylesheet" href="estilo.css">
-        <link rel="stylesheet" href="Bot&Rclick.css">
-        <title> Duit </title>
-   </head>
-   <body>
+        <label class="borrarType" id="borrarType"> <p class="eventoABorrar" id="eventoABorrar">TextoEjemplo</p> <input id="check" type="checkbox" name="nombreEventoB"></label>
 
         <div class="topbar">
             <a href="#default" class="logo"> <img src="../multimedia/logo_svg.svg" alt="Logo" class="logo"> </a>
@@ -228,6 +231,18 @@
             <div>
                 <button class="close-button">Enviar</button>
                 <button class="cancel-button">Cancelar</button>
+            </div>
+        </dialog>
+
+        <dialog class="popupB" id="popupB">
+            <h2 id="tituloB"> Borrar eventos </h2>
+            <form name="formalB" method="dialog">
+                <p><i>Selecciona todos los que quieras borrar</i></p>
+                <div class="borrarDiv" id="borrarDiv"></div>
+            </form>
+            <div>
+                <button class="close-buttonB">Enviar</button>
+                <button class="cancel-buttonB">Cancelar</button>
             </div>
         </dialog>
 
