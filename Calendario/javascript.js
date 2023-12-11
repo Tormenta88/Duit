@@ -56,8 +56,15 @@ closePopup.addEventListener('click', () => {
     let nombreEvento = document.forms['formal']['nombreEvento'].value;
     let horaEvento = document.forms['formal']['tiempoEvento'].value;
     let duracionEvento = document.forms['formal']['duracionEvento'].value;
-    console.log(nombreEvento)
-    if (nombreEvento.length <= 18 & nombreEvento.length > 0 & (duracionEvento == '' || Number(duracionEvento) <= 24))
+    const maxEventos = 7
+    let long
+    try {
+        long = eventos[`${numero}.${mes}.${year}`].length
+    } catch {
+        long = 0
+    };
+    //console.log(nombreEvento)
+    if (nombreEvento.length <= 18 & nombreEvento.length > 0 & (duracionEvento == '' || Number(duracionEvento) <= 24) & long < maxEventos)
         {if (horaEvento != '' & duracionEvento != '' & duracionEvento > 0){
             allDay = false
             editarDia(evento, nombreEvento, horaEvento, duracionEvento, allDay)
@@ -73,13 +80,18 @@ closePopup.addEventListener('click', () => {
             document.getElementById('maxHora').innerHTML = 'La duración del evento no debe superar 24 horas'
         };
         if (eventos[`${numero}.${mes}.${year}`] != null){
-            eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
+            long = eventos[`${numero}.${mes}.${year}`].length
+            if (long < maxEventos){
+                eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
+            } else {
+                alert('No se pueden tener más de 7 eventos.\n\nIntenta borrar algo de menor importancia.\n')
+            }
         }
         else{
             eventos[`${numero}.${mes}.${year}`] = [];
             eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
         }
-        console.log(eventos);
+        //console.log(eventos);
 })
 
 
@@ -147,12 +159,6 @@ function previousMonth(){
 
 cargarMes()
 
-console.log(`Hoy es ${dia} de ${months[mes-1]} del ${year}`)
-var horas = fechaActual.getHours();
-var minutos = fechaActual.getMinutes();
-var segundos = fechaActual.getSeconds();
-var horaFormateada = horas + ':' + minutos + '…' + segundos+'s';
-console.log('Hora actual: ' + horaFormateada);
 
 
 
