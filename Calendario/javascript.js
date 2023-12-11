@@ -7,6 +7,7 @@ let mesLetras = 'Diciembre';
 let evento
 let numero
 
+
 const popup = document.querySelector('#popup')
 const closePopup = document.querySelector('.close-button')
 const cancelPopup = document.querySelector('.cancel-button')
@@ -87,22 +88,6 @@ function obtenerDiasEnMes(mes, año) {
     return ultimoDiaDelMes;
 }
 
-
-function cargarMes(){
-    diasEnMes = obtenerDiasEnMes(mes, year);
-    losDias = document.getElementsByClassName('dia')
-    for (let x = 0; x < losDias.length; x+=1){
-        if (x < diasEnMes){
-            losDias[x].innerHTML = x+1;
-        }
-        else{
-            losDias[x].innerHTML = '';
-        }
-    };
-};
-
-
-
 function resetearEventosCargados(){
     var elementosAEliminar = document.querySelectorAll('.evenTry');
     for (var i = 1; i < elementosAEliminar.length; i++) {
@@ -110,13 +95,39 @@ function resetearEventosCargados(){
     };
 };
 
+function cargarMes(){
+    resetearEventosCargados()
+    diasEnMes = obtenerDiasEnMes(mes, year);
+    losDias = document.getElementsByClassName('dia')
+    let aCargar
+    for (let x = 0; x < losDias.length; x+=1){
+        if (x < diasEnMes){
+            try {
+                aCargar = eventos[`${x+1}.${mes}.${year}`]
+                for (let y = 0; y < aCargar.length; y+=1)
+                editarDia(aCargar[y][0], aCargar[y][1], aCargar[y][2], aCargar[y][3], aCargar[y][4])
+            } catch {}
+            finally {
+                losDias[x].innerHTML = x+1;
+            }
+        }
+        else{
+            losDias[x].innerHTML = '';
+        }
+    };
+    //TODO cargar todos los eventos almacenados
+
+};
+
+
+
+
 
 function nextMonth(){
     if (mes == 12) {mes = 1;year += 1;} else {mes += 1;}
     document.getElementById('month').innerHTML = months[mes-1];
     document.getElementById('year').innerHTML = year;
     cargarMes()
-    resetearEventosCargados()
     
 };
 function previousMonth(){
@@ -130,7 +141,6 @@ function previousMonth(){
     document.getElementById('month').innerHTML = months[mes-1]
     document.getElementById('year').innerHTML = year
     cargarMes()
-    resetearEventosCargados()
 };
 
 
