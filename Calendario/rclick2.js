@@ -59,8 +59,8 @@ const attachContextMenu = (() => {
                     console.log("General Opciones", o, element.id, element.className);
                 },
                 subMenu: [
-                    { label: 'Ajustes', action(o, element) { console.log("General Ajustes", o, element.id, element.className) } },
-                    { label: 'Modo Oscuro', action(o, element) { console.log("General Modo Oscuro", o, element.id, element.className) } }
+                    { label: 'Ajustes', action(o, element) { Ajustes() } },
+                    { label: 'Modo Oscuro', action(o, element) { modoOscuro() } }
                 ]
             }
           ];
@@ -110,8 +110,8 @@ attachContextMenu([
           console.log("General Opciones", o, element.id, element.className);
       },
       subMenu: [
-          { label: 'Ajustes', action(o, element) { console.log("General Ajustes", o, element.id, element.className) } },
-          { label: 'Modo Oscuro', action(o, element) { console.log("General Modo Oscuro", o, element.id, element.className) } }
-      ]
+        { label: 'Ajustes', action(o, element) { Ajustes() } },
+        { label: 'Modo Oscuro', action(o, element) { modoOscuro() } }
+        ]
   }
 ]);

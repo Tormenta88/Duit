@@ -57,7 +57,6 @@ function borrarSeleccion(){
         };
     };
     //console.log(del);
-    let delL = del.length;
     let max = 0;
     while (del.length > 0){
         let evL = eventos[`${numero}.${mes}.${year}`].length
@@ -190,16 +189,20 @@ function cargarMes(){
     resetearEventosCargados()
     diasEnMes = obtenerDiasEnMes(mes, year);
     losDias = document.getElementsByClassName('dia')
+    const d = new Date(year, mes, -diasEnMes+1);
+    let empieza = d.getDay();
+    let diasPuestos = 1;
     let aCargar
     for (let x = 0; x < losDias.length; x+=1){
-        if (x < diasEnMes){
+        if (diasPuestos <= diasEnMes & x > empieza){
             try {
-                aCargar = eventos[`${x+1}.${mes}.${year}`]
+                aCargar = eventos[`${diasPuestos}.${mes}.${year}`]
                 for (let y = 0; y < aCargar.length; y+=1)
                 editarDia(aCargar[y][0], aCargar[y][1], aCargar[y][2], aCargar[y][3], aCargar[y][4])
             } catch {}
             finally {
-                losDias[x].innerHTML = x+1;
+                losDias[x].innerHTML = diasPuestos;
+                diasPuestos += 1;
             }
         }
         else{
@@ -207,8 +210,6 @@ function cargarMes(){
         }
     };
 };
-
-
 
 
 
@@ -225,6 +226,15 @@ function previousMonth(){
     document.getElementById('year').innerHTML = year;
     cargarMes();
 };
+
+function modoOscuro(){
+    alert('Proximamente');
+};
+function Ajustes(){
+    alert('Proximamente');
+};
+
+
 
 
 
