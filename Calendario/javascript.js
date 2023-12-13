@@ -56,17 +56,24 @@ function borrarSeleccion(){
             del.push(texto)
         };
     };
-    let delL = del.length
-    console.log(del)
-    let i = 0
-    let rompe = 10;
     //console.log(del);
-    for (let x = 0; x < delL; x++){
-        console.log(eventos[`${numero}.${mes}.${year}`][x])
-        if (eventos[`${numero}.${mes}.${year}`][x].includes(del[x])){
-            eventos[`${numero}.${mes}.${year}`].splice(x, 1)
+    let delL = del.length;
+    let max = 0;
+    while (del.length > 0){
+        let evL = eventos[`${numero}.${mes}.${year}`].length
+        for (let x = 0; x < evL; x++){
+            if (eventos[`${numero}.${mes}.${year}`][x].includes(del[0])) {
+                eventos[`${numero}.${mes}.${year}`].splice(x, 1);
+                del.splice(0, 1);
+                break;
+            };
         };
-    };
+        max++;
+        if (max > 9){
+            console.log('pallorar')
+            break;
+        };
+    };  
     resetearEventosABorrar();
     cargarMes();
 };
