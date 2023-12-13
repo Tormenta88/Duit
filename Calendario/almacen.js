@@ -28,7 +28,18 @@ const firebaseConfig = {
 
 
 // Inicializa Firebase
-firebase.initializeApp(firebaseConfig);
 
 //var dbRef = firebase.database().ref().child('text');
 //dbRef.on('value', snap => console.log(snap.val()));
+
+//firebase.initializeApp(firebaseConfig);
+
+//var db = firebase.database();
+
+//var data = {
+//    nombre: "Juan",
+//    edad: 30,
+//    ciudad: "Madrid"
+//};
+
+//db.ref('ruta/a/tu/diccionario').set(data);

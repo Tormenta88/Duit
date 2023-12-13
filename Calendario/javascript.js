@@ -15,7 +15,7 @@ const sendPopup = document.querySelector('.close-button')
 const cancelPopup = document.querySelector('.cancel-button')
 
 const popupB = document.querySelector('#popupB')
-const sendPopupB = document.querySelector('.close-button')
+const sendPopupB = document.querySelector('.close-buttonB')
 const cancelPopupB = document.querySelector('.cancel-buttonB')
 
 
@@ -38,11 +38,12 @@ function borrarEvento(dia){
         console.log(confirmar)
         document.getElementById('borrarDiv').appendChild(nuevoBorrador)
     };
+    return confirmar, nuevoBorrador
 };
 
-function borrarSelecion(){
+function borrarSeleccion(){
     aBorrar = document.forms['formalB']['nombreEventoB'].value;
-    console.log
+    console.log(aBorrar)
 };
 
 
@@ -83,6 +84,7 @@ sendPopup.addEventListener('click', () => {
     let duracionEvento = document.forms['formal']['duracionEvento'].value;
     const maxEventos = 7
     let long
+    let crearEvento = false
     try {
         long = eventos[`${numero}.${mes}.${year}`].length
     } catch {
@@ -93,18 +95,21 @@ sendPopup.addEventListener('click', () => {
         {if (horaEvento != '' & duracionEvento != '' & duracionEvento > 0){
             allDay = false
             editarDia(evento, nombreEvento, horaEvento, duracionEvento, allDay)
+            crearEvento = true
             popup.close()
         }
         else if (horaEvento == '' & duracionEvento == ''){
             allDay = true
             editarDia(evento, nombreEvento, horaEvento, duracionEvento, allDay)
+            crearEvento = true
             popup.close()
         }}
         else{
             document.getElementById('maxChar').innerHTML = 'El nombre del evento debe ser de maximo 18 caracteres'
             document.getElementById('maxHora').innerHTML = 'La duración del evento no debe superar 24 horas'
         };
-        if (eventos[`${numero}.${mes}.${year}`] != null){
+        if (crearEvento == true) {
+            if (eventos[`${numero}.${mes}.${year}`] != null){
             if (long < maxEventos){
                 eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
             } else {
@@ -114,9 +119,18 @@ sendPopup.addEventListener('click', () => {
         else{
             eventos[`${numero}.${mes}.${year}`] = [];
             eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
-        }
+        };
+    };
         //console.log(eventos);
 })
+
+sendPopupB.addEventListener('click', () => {
+    borrarSeleccion()
+    popupB.close()
+});
+
+
+
 
 
 function obtenerDiasEnMes(mes, año) {
