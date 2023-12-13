@@ -20,30 +20,55 @@ const cancelPopupB = document.querySelector('.cancel-buttonB')
 
 
 cancelPopup.addEventListener('click', () => {popup.close()});
-cancelPopupB.addEventListener('click', () => {popupB.close()});
+cancelPopupB.addEventListener('click', () => {popupB.close(); resetearEventosABorrar();});
 
 
 function borrarEvento(dia){
     resetearEventosABorrar()
     popupB.showModal();
     numero = dia.querySelector('p').innerHTML
-    const nEventos = eventos[`${numero}.${mes}.${year}`].length
+    let nEventos
+    try {
+        nEventos = eventos[`${numero}.${mes}.${year}`].length
+    } catch {
+        nEventos = 0
+    };
     for (let x = 0; x < nEventos; x+=1){
-        var borrador = document.getElementById('borrarType');
+        var borrador = document.getElementsByClassName('borrarType')[0];
         var nuevoBorrador = borrador.cloneNode(true);
         nuevoBorrador.style.opacity = 1;
         nuevoBorrador.style.position = 'relative';
         nuevoBorrador.querySelector('.eventoABorrar').innerHTML = eventos[`${numero}.${mes}.${year}`][x][1];
-        confirmar = nuevoBorrador.querySelector('#check').checked;
-        console.log(confirmar)
         document.getElementById('borrarDiv').appendChild(nuevoBorrador)
     };
-    return confirmar, nuevoBorrador
 };
 
 function borrarSeleccion(){
-    aBorrar = document.forms['formalB']['nombreEventoB'].value;
-    console.log(aBorrar)
+    const selecion = document.getElementsByClassName('borrarType');
+    let del = []
+    let texto
+    let activado
+    for (let x = 1; x <= selecion.length; x += 1){
+        //console.log(`${x} de ${selecion.length}`);
+        texto = selecion[x-1].getElementsByTagName('p')[0].textContent;
+        activado = selecion[x-1].getElementsByTagName('input')[0].checked;
+        if (activado){
+            del.push(texto)
+        };
+    };
+    let delL = del.length
+    console.log(del)
+    let i = 0
+    let rompe = 10;
+    //console.log(del);
+    for (let x = 0; x < delL; x++){
+        console.log(eventos[`${numero}.${mes}.${year}`][x])
+        if (eventos[`${numero}.${mes}.${year}`][x].includes(del[x])){
+            eventos[`${numero}.${mes}.${year}`].splice(x, 1)
+        };
+    };
+    resetearEventosABorrar();
+    cargarMes();
 };
 
 
@@ -126,6 +151,8 @@ sendPopup.addEventListener('click', () => {
 
 sendPopupB.addEventListener('click', () => {
     borrarSeleccion()
+    resetearEventosABorrar()
+    cargarMes()
     popupB.close()
 });
 
@@ -145,8 +172,9 @@ function resetearEventosCargados(){
     };
 };
 function resetearEventosABorrar(){
-    var elementosAEliminar = document.querySelectorAll('.borrarType');
+    var elementosAEliminar = document.getElementsByClassName('borrarType');
     for (var i = 1; i < elementosAEliminar.length; i++) {
+        //console.log(`Se ha borrado ${elementosAEliminar[i]} En teoria`);
         elementosAEliminar[i].remove();
     };
 };
