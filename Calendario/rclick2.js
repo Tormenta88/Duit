@@ -59,7 +59,7 @@ const attachContextMenu = (() => {
                     console.log("General Opciones", o, element.id, element.className);
                 },
                 subMenu: [
-                    { label: 'Ajustes', action(o, element) { Ajustes() } },
+                    { label: 'Ajustes', action(o, element) { openSettings() } },
                     { label: 'Modo Oscuro', action(o, element) { modoOscuro() } }
                 ]
             }
@@ -110,7 +110,7 @@ attachContextMenu([
           console.log("General Opciones", o, element.id, element.className);
       },
       subMenu: [
-        { label: 'Ajustes', action(o, element) { Ajustes() } },
+        { label: 'Ajustes', action(o, element) { openSettings() } },
         { label: 'Modo Oscuro', action(o, element) { modoOscuro() } }
         ]
   }

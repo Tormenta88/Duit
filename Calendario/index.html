@@ -69,7 +69,7 @@
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="par">
                 <td> 
                     <div class="contenedor">
                         <p class="dia">8</p>
@@ -144,7 +144,7 @@
                 </td>
             </tr>
             
-            <tr>
+            <tr class="par">
                 <td> 
                     <div class="contenedor">
                         <p class="dia">22</p>
@@ -218,7 +218,7 @@
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="par">
                 <td> 
                     <div class="contenedor">
                         <p class="dia">5</p>
@@ -283,13 +283,31 @@
             </div>
         </dialog>
 
+
+        <dialog class="popupS" id="popupS">
+            <h2 id="tituloS"> Cambiar Preferencias </h2>
+            <form name="formalS" method="dialog">
+                <label> Background 1: <input type="color" name="fondo1"></label><p id="maxChar"></p>
+                <label> Background 2: <input type="color" name="fondo2"></label><p id="maxChar"></p>
+                <label> Header: <input type="color" name="header"></label><p id="maxChar"></p>
+                <label> Eventos 1: <input type="color" name="eventos"></label><p id="maxChar"></p>
+                <label> Animación 1: <input type="color" name="animacion"></label><p id="maxChar"></p>
+            </form>
+            <div>
+                <button class="close-buttonS">Enviar</button>
+                <button class="cancel-buttonS">Cancelar</button>
+            </div>
+        </dialog>
+
+
+
         <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
     
-        <script src="almacen.js"></script>
-
-
+        
+        
         <script src="javascript.js"></script>
+        <script src="almacen.js"></script>
         <script src="rclick2.js"></script>
         
         

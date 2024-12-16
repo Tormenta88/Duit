@@ -19,6 +19,8 @@ const sendPopupB = document.querySelector('.close-buttonB')
 const cancelPopupB = document.querySelector('.cancel-buttonB')
 
 
+
+
 cancelPopup.addEventListener('click', () => {popup.close()});
 cancelPopupB.addEventListener('click', () => {popupB.close(); resetearEventosABorrar();});
 
@@ -105,8 +107,8 @@ function editarDia(elementoDia, texto, hora, duracion, allDay){
     }
     parrafosclonados[1].textContent = hora;
 
-    elementoDia.appendChild(nuevoparrafo)
-}
+    elementoDia.appendChild(nuevoparrafo);
+};
 
 
 sendPopup.addEventListener('click', () => {
@@ -143,6 +145,7 @@ sendPopup.addEventListener('click', () => {
             if (eventos[`${numero}.${mes}.${year}`] != null){
             if (long < maxEventos){
                 eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
+                console.log([evento, nombreEvento, horaEvento, duracionEvento, allDay])
             } else {
                 alert('No se pueden tener más de 7 eventos.\n\nIntenta borrar algo de menor importancia.\n')
             }
@@ -150,6 +153,8 @@ sendPopup.addEventListener('click', () => {
         else{
             eventos[`${numero}.${mes}.${year}`] = [];
             eventos[`${numero}.${mes}.${year}`].push([evento, nombreEvento, horaEvento, duracionEvento, allDay]);
+            console.log([evento, nombreEvento, horaEvento, duracionEvento, allDay])
+            console.log(numero, mes, year)
         };
     };
         //console.log(eventos);
@@ -230,12 +235,81 @@ function previousMonth(){
 function modoOscuro(){
     alert('Proximamente');
 };
-function Ajustes(){
-    alert('Proximamente');
+
+
+//////////////////////////////////////////?
+////////////////? Ajustes ¿////////////////
+//////////////////////////////////////////?
+const popupS = document.querySelector('#popupS')
+const sendPopupS = document.querySelector('.close-buttonS')
+const cancelPopupS = document.querySelector('.cancel-buttonS')
+
+cancelPopupS.addEventListener('click', () => {popupS.close()});
+
+
+function openSettings(){
+    popupS.showModal();
+};
+
+
+sendPopupS.addEventListener('click', () => {
+    getSettings();
+    loadSettings();
+    popupS.close();
+});
+
+
+//="fondo1"
+//="fondo2"
+//="header"
+//="eventos"
+//="animacion"
+
+
+
+let listilla = document.querySelectorAll('tr');
+//console.log(listilla[6])
+
+
+//.par td{
+//    background-color: black;
+//    border-color: black;
+//  }
+
+
+
+function getSettings(){
+    preferencias['header'] = document.forms['formalS']['header'].value;
+    preferencias['background1'] = document.forms['formalS']['fondo1'].value;
+    preferencias['eventColor'] = document.forms['formalS']['eventos'].value;
+
 };
 
 
 
+function loadSettings(){
+    document.querySelectorAll('th').forEach(e => e.style.backgroundColor = preferencias['header']);
+    document.querySelectorAll('body').forEach(e => e.style.backgroundColor = preferencias['background1']);
+    //document.querySelectorAll('th').forEach(e => e.style.backgroundColor = preferencias['header']);
+    document.querySelectorAll('.evenTry').forEach(e => e.style.backgroundColor = preferencias['eventColor']);
+    document.getAnimations('cambioColor').forEach(e => e.style.backgroundColor = preferencias['resaltado']);
+};
 
 
+//? Ajustes
+let preferencias = {
+    'header' : 'red',
+    'background1' : '#d8e4ee',
+    'background2' : '#d8daea',
+    'eventColor' : 'greenyellow',
+    'resaltado' : 'turquoise'
+};
+
+
+
+loadSettings();
 cargarMes();
+
+/*########################################################*/
+/*##################Para la base de datos?################*/
+/*########################################################*/
